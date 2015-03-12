@@ -5,7 +5,7 @@
  (C) Copyright 2015 TaisukeWatanabe(@fcneet)
 */
 
-// ƒsƒ“’è‹`
+// ãƒ”ãƒ³å®šç¾©
 #define	D0		0		// D0
 #define	RST		8		// Reset
 #define	A0_		17;		// A0
@@ -13,29 +13,29 @@
 #define	WR		15;		// Read Enable
 #define	CS		14;		// Chip Select
 
-// ƒsƒ“‘€ìƒ}ƒNƒ
+// ãƒ”ãƒ³æ“ä½œãƒã‚¯ãƒ­
 #define	A0_LOW			PORTC = (PORTC & ~0B01000);
 #define	A0_HIGH			PORTC = (PORTC |  0B01000);
 #define A1_WRITE(ifadr)	PORTC = (PORTC & ~0B10000) | (ifadr << 4);
 #define	CS_LOW			PORTC = (PORTC & ~0B00001);
 #define CS_HIGH			PORTC = (PORTC |  0B00001);
 
-// ƒNƒ‰ƒX YMF288_DRV éŒ¾
+// ã‚¯ãƒ©ã‚¹ YMF288_DRV å®£è¨€
 class YMF288_DRV{
 public:
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	YMF288_DRV();
-	// ƒ|[ƒgİ’è&ƒ`ƒbƒv‰Šú‰»
+	// ãƒãƒ¼ãƒˆè¨­å®š&ãƒãƒƒãƒ—åˆæœŸåŒ–
 	void begin();
-	// ƒ‚ƒWƒ…[ƒ‹ƒŠƒZƒbƒg
+	// ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãƒªã‚»ãƒƒãƒˆ
 	void reset();
-	// ƒŒƒWƒXƒ^ƒ‰ƒCƒg
+	// ãƒ¬ã‚¸ã‚¹ã‚¿ãƒ©ã‚¤ãƒˆ
 	void reg_write(unsigned char ifadr, unsigned char adr, unsigned char dat);
 
 private:
-	// ƒf[ƒ^ƒ‰ƒCƒg
+	// ãƒ‡ãƒ¼ã‚¿ãƒ©ã‚¤ãƒˆ
 	void _write_data(unsigned char dat);
-	// ƒ[ƒŒƒxƒ‹ƒ|[ƒgƒ‰ƒCƒg
+	// ãƒ­ãƒ¼ãƒ¬ãƒ™ãƒ«ãƒãƒ¼ãƒˆãƒ©ã‚¤ãƒˆ
 	void _law_write(unsigned char ifadr, unsigned char adr, unsigned char dat);
 };
 

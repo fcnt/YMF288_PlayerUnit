@@ -4,12 +4,12 @@
 
  (C) Copyright 2015 TaisukeWatanabe(@fcneet)
 
-  yQl‘—¿z
-  EYMF288-M ƒsƒ“”z—ñ•‰ñ˜H (http://d.hatena.ne.jp/m_yanase/20131007/1381151650)
-  EYMF288•ÏŠ·Šî”Â+Arduino‚ÅŠÈˆÕS98ƒvƒŒ[ƒ„‚ğì‚éi‚»‚Ì1`2j
+  ã€å‚è€ƒè³‡æ–™ã€‘
+  ãƒ»YMF288-M ãƒ”ãƒ³é…åˆ—ï¼†å›è·¯ (http://d.hatena.ne.jp/m_yanase/20131007/1381151650)
+  ãƒ»YMF288å¤‰æ›åŸºæ¿+Arduinoã§ç°¡æ˜“S98ãƒ—ãƒ¬ãƒ¼ãƒ¤ã‚’ä½œã‚‹ï¼ˆãã®1ï½2ï¼‰
     (http://d.hatena.ne.jp/m_yanase/20130910/1378810438)
-  ES98v3ƒtƒH[ƒ}ƒbƒgihttp://www.vesta.dti.ne.jp/~tsato/soft_s98v3.htmlj
-  ES98ƒvƒŒƒCƒ„‚ğì‚Á‚Ä‚İ‚éihttp://risky-safety.org/zinnia/sdl/works/fmgen/s98sdl/j
+  ãƒ»S98v3ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆï¼ˆhttp://www.vesta.dti.ne.jp/~tsato/soft_s98v3.htmlï¼‰
+  ãƒ»S98ãƒ—ãƒ¬ã‚¤ãƒ¤ã‚’ä½œã£ã¦ã¿ã‚‹ï¼ˆhttp://risky-safety.org/zinnia/sdl/works/fmgen/s98sdl/ï¼‰
  
 */
 
@@ -22,8 +22,8 @@ YMF288_DRV::YMF288_DRV()
 {
 }
 
-/* !ƒ|[ƒg‚Ì‰Šúİ’è‚ÆYMF288‚ÌƒŠƒZƒbƒg‚ğs‚¤B
-	Å‰‚É•K‚¸ŒÄ‚Ô•K—v‚ ‚èB
+/* !ãƒãƒ¼ãƒˆã®åˆæœŸè¨­å®šã¨YMF288ã®ãƒªã‚»ãƒƒãƒˆã‚’è¡Œã†ã€‚
+	æœ€åˆã«å¿…ãšå‘¼ã¶å¿…è¦ã‚ã‚Šã€‚
  */
 YMF288_DRV::begin()
 {
@@ -44,11 +44,11 @@ YMF288_DRV::begin()
 	return;
 }
   
-/* !YMF288‚ÌƒŠƒZƒbƒg‚ğs‚¤B
+/* !YMF288ã®ãƒªã‚»ãƒƒãƒˆã‚’è¡Œã†ã€‚
  */
 void YMF288_DRV::reset()
 {
-	digitalWrite(RST, LOW);  // ƒ‚ƒWƒ…[ƒ‹ƒŠƒZƒbƒg
+	digitalWrite(RST, LOW);  // ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãƒªã‚»ãƒƒãƒˆ
 	delayMicroseconds(100); // min. 25us
 	digitalWrite(RST, HIGH);
 	delay(100);
@@ -57,12 +57,12 @@ void YMF288_DRV::reset()
 	return;
 }
 
-// ƒŒƒWƒXƒ^ƒ‰ƒCƒg
+// ãƒ¬ã‚¸ã‚¹ã‚¿ãƒ©ã‚¤ãƒˆ
 void YMF288_DRV::reg_write(unsigned char ifadr, unsigned char adr, unsigned char dat)
 {
 	_law_write(ifadr, adr, dat);
 
-	switch(adr)	// ƒf[ƒ^ƒ‰ƒCƒgŒã‚ÌWait
+	switch(adr)	// ãƒ‡ãƒ¼ã‚¿ãƒ©ã‚¤ãƒˆå¾Œã®Wait
 	{
 		case 0x28:	// FM Address 0x28
 		{
@@ -83,15 +83,15 @@ void YMF288_DRV::reg_write(unsigned char ifadr, unsigned char adr, unsigned char
 	return;
 }
 
-/* !ƒf[ƒ^ƒ‰ƒCƒg‚Ì‚½‚ß‚Ìƒ[ƒŒƒxƒ‹ƒ|[ƒg‘€ìŠÖ”B”ñŒöŠJB
+/* !ãƒ‡ãƒ¼ã‚¿ãƒ©ã‚¤ãƒˆã®ãŸã‚ã®ãƒ­ãƒ¼ãƒ¬ãƒ™ãƒ«ãƒãƒ¼ãƒˆæ“ä½œé–¢æ•°ã€‚éå…¬é–‹ã€‚
  */
 void YMF288_DRV::_write_data(unsigned char dat)
 {
-	PORTD = (PORTD&0B00000000)|(dat);  // ƒ|[ƒgD0-D7‚Öo—Íƒf[ƒ^ƒZƒbƒg
+	PORTD = (PORTD&0B00000000)|(dat);  // ãƒãƒ¼ãƒˆD0-D7ã¸å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆ
 	return;
 }
 
-/* !ƒf[ƒ^‚ğƒ‰ƒCƒg‚·‚é‚½‚ß‚Ìˆê˜A‚Ìƒ|[ƒg‘€ì‚ğŠÜ‚ñ‚¾ŠÖ”B”ñŒöŠJB
+/* !ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ©ã‚¤ãƒˆã™ã‚‹ãŸã‚ã®ä¸€é€£ã®ãƒãƒ¼ãƒˆæ“ä½œã‚’å«ã‚“ã é–¢æ•°ã€‚éå…¬é–‹ã€‚
  */
 void YMF288_DRV::_law_write(unsigned char ifadr, unsigned char adr, unsigned char dat)
 {
